@@ -13,8 +13,9 @@ body {
 }
 /* End Base */
 
-header {
+#H00 {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   gap: 40px;
@@ -23,34 +24,118 @@ header {
   border-radius: 0 0 8px 8px;
   width: 100%;
   position: fixed;
-  top: 0;
-  left: 50%;
+  top:0;
+  left:50%;  
   transform: translateX(-50%);
   font-family: 'IBM Plex Mono', monospace;
-}
 
+}
 header a {
   text-decoration: none;      
   color: #ccc;                
   font-size: 14px;
   transition: color 0.3s ease;
 }
+.header-iconbtn {
+  display:none;
+}
+@media (max-width:1023px) {
+  .header-iconbtn{
+    display:block;
+    margin-left: 20px;
+  }
+  .H01{
+    display:none;
+  }
+  #H00{
+       justify-content: start;
+  }
+}
+.nav_mobile{
+  position: fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  height:100vh;
+  background-color: #ffffff;
+  width: 300px;
+  justify-content: start;
+  transform: translateX(-100%);
+  z-index: 9999;
+  
+}
+#nav_input:checked~.nav_mobile {
+  transform: translateX(0%);
+}
+.mobile-close{
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4); /* Màu mờ */
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Khi nav_input được check → hiển thị overlay */
+#nav_input:checked ~ .overlay {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+#H02-list{
+  margin-top: 50px;
+  margin-left: 30px;
+}
+#H02-list a {
+  color:black;  
+  font-size: 20px;
+}
+.H02-links{
+  text-decoration: none;
+  display:block;
+  padding:20px 0;
+  color:#1a1a1a;
+}
+
 #A01 {
     display: flex;
+    flex-wrap: wrap;
     padding: 40px;
     align-items: center;
     margin-top: 50px;
     margin-bottom: 50px;
     justify-content: space-between;
-
-    
 }
+
+@media (max-width: 768px) {
+  #A01 {
+        justify-content: center;
+  }
+}
+
 #A01 img {
-    width:500px;
-    height:500px;
+    width:100%;
+    height:100%;
+    max-width: 350px;
+    max-height: 350px;
     gap: 20px;
     border-radius: 50%;
     object-fit: cover;
+    aspect-ratio: 1/1;
+    margin-top: 50px;
+
+
   
 }
 p {
@@ -75,6 +160,7 @@ h1 {
 #A02 {
   display:flex;
   flex-direction: column;
+  padding :40px;
 }
 
 .A02_title {
@@ -84,6 +170,7 @@ h1 {
 .image-border {
   padding: 20px 32px;
   display: flex;
+    flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
@@ -95,11 +182,19 @@ h1 {
   background: black;
 }
 
+@media (max-width: 768px) {
+  #container-home {
+    padding-top: 60px;
+  }
+}
+
 #container-casestudies {
   background-color: #ffffff;
-   max-width: 1280px;
+   max-width: 100%;
    margin: 0 auto;
-   max-height:  1300px;
+   max-height:  100%;
+   padding:50px;
+
 }
 button {
   width: 304px;
@@ -115,9 +210,17 @@ button {
 }
 .LG01 {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-top:20px;
   margin-bottom:45px;
+  gap:50px;
+}
+@media (max-width:768px) {
+  .LG01 {
+    justify-content: unset;
+  }
+  
 }
 h2 {
   font-size:34px;
@@ -158,23 +261,35 @@ h3 {
 }
 #B02 {
   display:flex;
+  flex-wrap: wrap;
   margin-top: 40px;
   align-items: center;
   gap :26px;
   justify-content: center;
 }
+  
+
 #B03 {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 60px;
   gap: 31px;
   align-items: center;
 
 }
+@media (max-width:768px) {
+  #B03{  flex-direction: column-reverse;
+
+  }
+  
+}
 #B04 {
-  display:flex;  
-  margin-top: 60px;
+  display:flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
   align-items: center;
-  gap:14px;
+  gap :26px;
+  justify-content: center;
 }
 #content {
     text-align: left;
@@ -242,8 +357,10 @@ h3 {
 #container-testimonials {
    background-color: #080808;
    align-items:center;
-   height: 804px;
    padding-top: 40px;
+   max-width: 100%;
+   display:flex;
+   flex-direction: column;
 
 }
 #container-testimonials h2{
@@ -252,20 +369,28 @@ h3 {
 }
 #testimonials-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; 
+  grid-template-columns: repeat(2, 1fr); /* Ép 2 cột cố định */
   gap: 30px;
-  align-items:center;
-  justify-content: center;
-  padding-left: 180px;
-  max-width: 1200px;
-  margin-top: 60px;
+  padding: 50px;
+  margin: 0 auto ;
+  box-sizing: border-box;
+  
 
+
+}
+@media (max-width:768px) {
+  #testimonials-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  
 }
 #testimonials-card {
     border-radius: 4px;
     border: 1px solid #484848;
+    max-width: 100%;
     width: 445px;
-    height: 212px;
+    box-sizing: border-box;
     
 
 }
@@ -289,6 +414,7 @@ h3 {
   border-radius: 50%;
   object-fit: cover;
   margin-left: 22px;
+  margin-block: 10px;
 }
 .name {
   color: #ffffff;
@@ -299,8 +425,9 @@ h3 {
 
 }
 #container-recentwork {
-  height:804px;
   padding: 50px;
+  display: flex;
+  flex-direction: column;
 }
 #content-rw {
   display:flex;
@@ -309,6 +436,10 @@ h3 {
   margin-top:60px;
   padding-left: 95px;
   gap:30px;
+}
+@media (max-width:768px) {
+  #content-rw {flex-wrap:wrap;}
+  
 }
 .img-rw {
   width:445px;
@@ -327,10 +458,63 @@ h3 {
 }
 #container-getintouch {
   background-color: #080808;
-  width: auto;
-  height: 672px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 800px;
 
 }
 #container-getintouch h2{
   color: #ffffff;
 }
+label {
+  color: #ffffff;
+  
+}
+#email{
+  width: 350px;
+  height: 40px;
+  border-radius: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+#mobile {
+  width: 350px;
+  height: 40px;
+  border-radius: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+#message {
+  width:350px;
+  height: 120px;
+  border-radius: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+#labelgit {
+  padding: 0 40px;
+  gap :12px;
+  margin-top: 40px;
+  font-family: 'IBM Plex Mono', monospace;
+
+  
+}
+.buttongit {
+  width: 359px;
+  height: 50px;
+  padding: 16px 24px;
+  font-family: 'IBM Plex Mono', monospace;
+} 
+footer {
+  width: 100%;
+  height : 70px;
+  background-color: #1B1B1B;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  
+}
+footer p {
+  margin-top: 26px ;
+}
+
+

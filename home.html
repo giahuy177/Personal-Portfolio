@@ -9,21 +9,49 @@
 </head>
 <body>
     <header class="page-width">
-        <div id="H01">
-            <a href="#container-home">Home</a>
+        <div id="H00">
+            <div class="H01">
+                <a href="#container-home">Home</a>
+            </div>
+            <div class="H01">
+                <a href="#container-casestudies">Case Studies</a>
+            </div>
+            <div class="H01">
+                <a href="#container-testimonials">Testimonials</a>
+            </div>
+            <div class="H01">
+                <a href="#container-recentwork">Recent Work</a>
+            </div>
+            <div class="H01">
+                <a href="#container-getintouch">Get In Touch</a>
+            </div> 
+        <input type="checkbox" id="nav_input" hidden>
+
+        <label for="nav_input" class="header-iconbtn">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" stroke="white" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="6" x2="20" y2="6" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="18" x2="20" y2="18" />
+        </svg>
+        </label>
+        <label for="nav_input" class="overlay"></label>
+        <div class="nav_mobile">
+            <label for="nav_input" class="mobile-close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
+                    stroke="black" stroke-width="2" stroke-linecap="round">
+                <line x1="4" y1="4" x2="24" y2="24" />
+                <line x1="24" y1="4" x2="4" y2="24" />
+                </svg>
+            </label>
+            <div id="H02-list">
+                <div class="H02-links"><a href="#container-home">Home</a></div>
+                <div class="H02-links"><a href="#container-casestudies">Case Studies</a></div>
+                <div class="H02-links"><a href="#container-testimonials">Testimonials</a></div>
+                <div class="H02-links"><a href="#container-recentwork">Recent Work</a></div>
+                <div class="H02-links"><a href="#container-getintouch">Get In Touch</a></div>
+            </div>
         </div>
-        <div id="H02">
-            <a href="#container-casestudies">Case Studies</a>
-        </div>
-        <div id="H03">
-            <a href="#container-testimonials">Testimonials</a>
-        </div>
-        <div id="H04">
-            <a href="#container-recentwork">Recent Work</a>
-        </div>
-        <div id="H05">
-            <a href="#container-getintouch">Get In Touch</a>
-        </div>    
     </header>
     <div id="container-home">
             <div class="page-width">
@@ -31,7 +59,7 @@
                     <div id="text">
                         <h1>Nguyễn Gia Huy</h1>
                         <p>Intro text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <button>Let's Get Started ></button>
+                        <button id="toggle-btn">Let's Get Started ></button>
                     </div>
                     <div id="img">
                         <img src="/assets/media/img/DSC05562.JPG" alt="image1">
@@ -188,7 +216,21 @@
             <h2>Get In Touch</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
+        <div id="labelgit">
+            <form >
+                <label for="email">Email</label><br>
+                <input type="text" id="email" name="email" value="Please enter your email"><br>
+                <label for="mobile">Mobile</label><br>
+                <input type="text" id="mobile" name="mobile" value="Enter mobile"><br>
+                <label for="message">Message</label><br>
+                <input type="text" id="message" name="massage" value="Enter your message"><br>
+            </form> 
+            <button class="buttongit">Submit ></button>
+        </div>
     </div>
+    <footer>
+        <p> Made with ❤️ <p>
+    </footer>
         
         
 
